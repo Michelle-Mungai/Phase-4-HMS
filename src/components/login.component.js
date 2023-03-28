@@ -6,7 +6,7 @@ export default class Login extends Component {
         console.log(email);
       }
         return (
-            <form>
+            <form className="login-form" onSubmit={handleSubmit}>
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
