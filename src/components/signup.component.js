@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 export default class SignUp extends Component {
     render() {
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(email);
+    }
         return (
-            <form>
+            <form className="signup-form" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>First name</label>
@@ -40,9 +44,9 @@ export default class SignUp extends Component {
             Sign Up
           </button>
         </div>
-        <p className="forgot-password text-right">
+        <button className="forgot-password text-right" onClick={() => props.onFormSwitch("login")}>
           Already registered <a href="/sign-in">sign in?</a>
-        </p>
+        </button>
       </form>
         );
     }
