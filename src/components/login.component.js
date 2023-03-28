@@ -5,6 +5,7 @@ export default class Login extends Component {
         e.preventDefault();
         console.log(email);
       }
+
         return (
             <form className="login-form" onSubmit={handleSubmit}>
         <h3>Sign In</h3>
@@ -40,4 +41,4 @@ export default class Login extends Component {
       </form>
         );
     }
-}
+  }
