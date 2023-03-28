@@ -5,7 +5,7 @@ import * as BiIcons from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './sidebarData';
 import { IconContext } from 'react-icons';
-import './navbar.css'
+import './navbar.css';
 
 function Navbar(props) {
     const { handleLogout } = props;
@@ -21,7 +21,7 @@ function Navbar(props) {
                 <Link to="#" className='menu-bars'>
                     <FaIcons.FaBars onClick={showSidebar}/> 
                 </Link>
-                <Link to="/sign-in" className='logout' title="Logout">
+                <Link to="/login" className='logout' title="Logout">
                     <BiIcons.BiExit 
                         onClick={handleLogout}
                     /> 
