@@ -1,0 +1,43 @@
+.prescription {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    max-width: 500px;
+  }
+  
+  .prescription h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .prescription .details {
+    margin-top: 20px;
+  }
+  
+  .prescription .details p {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .prescription .medicines {
+    margin-top: 20px;
+  }
+  
+  .prescription .medicines h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .prescription .medicines ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .prescription .medicines li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  

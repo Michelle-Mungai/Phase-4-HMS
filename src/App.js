@@ -8,6 +8,7 @@ import Password from './components/password.component';
 import Navbar from './components/Navbar/Navbar';
 import DoctorAppointment from './components/Appointments/DoctorAppointment';
 import PatientAppointment from './components/Appointments/PatientAppointment';
+import Prescription from './components/Prescription/Prescription';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="/navbar" element={<Navbar/>}/>
               <Route path="/doctorAppointment" element={<DoctorAppointment/>}/>
               <Route path="/patientAppointment" element={<PatientAppointment/>}/>
+              <Route path="/prescription" element={<Prescription/>}/>
             </Routes>
           </div>
         </div>
