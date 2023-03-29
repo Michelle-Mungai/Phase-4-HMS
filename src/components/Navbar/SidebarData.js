@@ -29,7 +29,7 @@ export const SidebarData = [
     {
         title: 'Prescriptions',
         path: '/prescriptions',
-        icon: <IoIcons.IoMdHelpCircle />,
+        icon: <BsPrescription.IoMdHelpCircle />,
         cName: 'nav-text'
     },
 ]
