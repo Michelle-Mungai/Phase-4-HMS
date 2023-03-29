@@ -24,8 +24,8 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'prescription',
-        path: '/prescription',
+        title: 'Prescriptions',
+        path: '/prescriptions',
         icon: <BsPrescription.IoMdHelpCircle />,
         cName: 'nav-text'
     },
