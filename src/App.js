@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login.component';
 import SignUp from './components/signup.component';
 import Password from './components/password.component';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/navbar/navbar';
 import DoctorAppointment from './components/Appointments/DoctorAppointment';
 import PatientAppointment from './components/Appointments/PatientAppointment';
 import Prescription from './components/Prescription/Prescription';
@@ -39,7 +39,7 @@ function App() {
           <div className="auth-inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
-              <Route path="/sign-in" element={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/password" element={<Password/>}/>
               <Route path="/navbar" element={<Navbar/>}/>
