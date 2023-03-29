@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 export default class Login extends Component {
-    render() {
+    render(props) {
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
