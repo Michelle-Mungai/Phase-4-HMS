@@ -3,9 +3,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as BiIcons from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './components/Navbar/SidebarData'
+import { SidebarData } from './SidebarData'
 import { IconContext } from 'react-icons';
-import './components/Navbar/Navbar.css';
+import './Navbar.css';
 
 function Navbar(props) {
     const { handleLogout } = props;

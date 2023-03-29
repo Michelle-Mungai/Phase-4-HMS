@@ -3,7 +3,7 @@ export default class Login extends Component {
     render(props) {
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        console.log();
       }
 
         return (
@@ -32,9 +32,9 @@ export default class Login extends Component {
             Login
           </button>
         </div>
-        <button className="sign-up text-left" onClick={() => props.onFormSwitch("sign up")}>
+        <p className="sign-up text-left" onClick={() => props.onFormSwitch("sign up")}>
           Don't have an account <a href="/sign-up">sign up?</a>
-        </button>
+        </p>
         <p className="forgot-password text-right">
           Forgot <a href="/password"> password?</a>
         </p>

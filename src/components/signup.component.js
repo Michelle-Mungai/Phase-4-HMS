@@ -3,7 +3,7 @@ export default class SignUp extends Component {
     render(props) {
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        console.log();
     }
         return (
             <form className="signup-form" onSubmit={handleSubmit}>
@@ -44,9 +44,9 @@ export default class SignUp extends Component {
             Sign Up
           </button>
         </div>
-        <button className="forgot-password text-right" onClick={() => props.onFormSwitch("login")}>
+        <p className="forgot-password text-right" onClick={() => props.onFormSwitch("login")}>
           Already registered <a href="/sign-in">sign in?</a>
-        </button>
+        </p>
       </form>
         );
     }
