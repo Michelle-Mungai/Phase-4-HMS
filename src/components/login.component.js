@@ -1,13 +1,39 @@
 import React, { Component } from "react";
-export default class Login extends Component {
-    render() {
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
-      }
+import { Navigate } from 'react-router-dom';
 
-        return (
-            <form className="login-form" onSubmit={handleSubmit}>
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      apiPassword: "", // password retrieved from the API
+    };
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+
+  handlePasswordChange = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // compare the entered password with the API password
+    if (this.state.password === this.state.apiPassword) {
+      // navigate to the home page
+      // replace the following line with your navigation code
+      return <Navigate to="/navbar" />;
+    } else {
+      alert("Incorrect password");
+    }
+  };
+
+  render() {
+    return (
+      <form className="login-form" onSubmit={this.handleSubmit}>
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
@@ -16,6 +42,8 @@ export default class Login extends Component {
             className="form-control"
             placeholder="Enter email"
             required
+            value={this.state.email}
+            onChange={this.handleEmailChange}
           />
         </div>
         <div className="mb-3">
@@ -25,6 +53,8 @@ export default class Login extends Component {
             className="form-control"
             placeholder="Enter password"
             required
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
           />
         </div>
         <div className="d-grid">
@@ -32,13 +62,13 @@ export default class Login extends Component {
             Login
           </button>
         </div>
-        <button className="sign-up text-left" onClick={() => props.onFormSwitch("sign up")}>
+        <p className="sign-up text-left" onClick={() => this.props.onFormSwitch("sign up")}>
           Don't have an account <a href="/sign-up">sign up?</a>
-        </button>
+        </p>
         <p className="forgot-password text-right">
           Forgot <a href="/password"> password?</a>
         </p>
       </form>
-        );
-    }
+    );
   }
+}
