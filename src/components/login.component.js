@@ -7,7 +7,7 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      apiPassword: "", // password retrieved from the API
+      // apiPassword: "", // password retrieved from the API
     };
   }
 
