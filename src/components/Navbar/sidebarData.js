@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
-import * as BsPrescription from 'react-icons/io';
+// import * as BsPrescription from 'react-icons/io';
 import * as BsIcons from 'react-icons/bs';
 import * as GiIcons from 'react-icons/gi';
 // import DoctorAppointment from "../Appointments/DoctorAppointment";
@@ -25,11 +25,12 @@ export const SidebarData = [
         path: '/doctors',
         icon: <GiIcons.GiDoctorFace />,
         cName: 'nav-text'
-    },
-    {
-        title: 'Prescriptions',
-        path: '/prescriptions',
-        icon: <IoIcons.IoMdHelpCircle />,
-        cName: 'nav-text'
-    },
+    }
 ]
+//     {
+//         title: 'Prescriptions',
+//         path: '/prescriptions',
+//         icon: <IoIcons.IoMdHelpCircle />,
+//         cName: 'nav-text'
+//     },
+// ]

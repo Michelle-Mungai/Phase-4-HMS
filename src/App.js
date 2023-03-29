@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login.component';
 import SignUp from './components/signup.component';
 import Password from './components/password.component';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/navbar';
 import DoctorAppointment from './components/Appointments/DoctorAppointment';
 import PatientAppointment from './components/Appointments/PatientAppointment';
 import Prescription from './components/Prescription/Prescription';
