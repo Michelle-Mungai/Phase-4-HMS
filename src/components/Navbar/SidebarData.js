@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
+import * as BsPrescription from 'react-icons/io';
 import * as BsIcons from 'react-icons/bs';
 import * as GiIcons from 'react-icons/gi';
 
@@ -26,7 +26,7 @@ export const SidebarData = [
     {
         title: 'prescription',
         path: '/prescription',
-        icon: <IoIcons.IoMdHelpCircle />,
+        icon: <BsPrescription.IoMdHelpCircle />,
         cName: 'nav-text'
     },
 ]
