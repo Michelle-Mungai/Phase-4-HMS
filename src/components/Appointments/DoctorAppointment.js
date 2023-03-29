@@ -1,23 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import './DoctorAppointment.css';
 
-const DoctorAppointment = ({ doctorName, appointmentDate, patientName, isConfirmed }) => (
-  <div className="appointment-container">
-    <div className="doctor-name">{doctorName}</div>
-    <div className="appointment-date">{appointmentDate}</div>
-    <div className="patient-name">{patientName}</div>
-    <div className={`appointment-status ${isConfirmed ? 'confirmed' : 'not-confirmed'}`}>
-      {isConfirmed ? 'Confirmed' : 'Not Confirmed'}
-    </div>
-  </div>
-);
+function DoctorAppointment() {
+  const [name, setName] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
 
-DoctorAppointment.propTypes = {
-  doctorName: PropTypes.string.isRequired,
-  appointmentDate: PropTypes.string.isRequired,
-  patientName: PropTypes.string.isRequired,
-  isConfirmed: PropTypes.bool.isRequired,
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Code to submit the form data
+  }
+
+  return (
+    <div className="appointment">
+      <h2>Book an Appointment</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Full Name:</label>
+          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date:</label>
+          <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="time">Time:</label>
+          <input type="time" id="time" value={time} onChange={(e) => setTime(e.target.value)} />
+        </div>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  );
+}
 
 export default DoctorAppointment;
