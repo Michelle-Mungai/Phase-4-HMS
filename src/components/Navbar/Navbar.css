@@ -7,9 +7,13 @@
     height: 5rem;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
     align-items: center;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 999;
   }
   
   .menu-bars {
