@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/Appointments/DoctorAppointment.css';
+import './DoctorAppointment.css';
 
 const DoctorAppointment = ({ patientName, doctorName, date, time }) => {
   return (
