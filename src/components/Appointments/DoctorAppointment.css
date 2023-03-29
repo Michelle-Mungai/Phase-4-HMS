@@ -31,6 +31,6 @@
 }
 
 .appointment-status.not-confirmed {
-  color: #f00;
-  background-color: #f2dede;
+  color: rgb(236, 30, 30);
+  background-color: #eed2d2;
 }

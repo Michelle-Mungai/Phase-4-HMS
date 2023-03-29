@@ -13,7 +13,7 @@ const DoctorAppointment = ({ doctorName, appointmentDate, patientName, isConfirm
   </div>
 );
 
-Appointment.propTypes = {
+DoctorAppointment.propTypes = {
   doctorName: PropTypes.string.isRequired,
   appointmentDate: PropTypes.string.isRequired,
   patientName: PropTypes.string.isRequired,
