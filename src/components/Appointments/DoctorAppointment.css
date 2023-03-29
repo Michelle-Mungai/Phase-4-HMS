@@ -1,17 +1,36 @@
 .appointment-container {
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .appointment-details {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .appointment-details p {
-    margin: 5px 0;
-  }
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.doctor-name {
+  font-weight: bold;
+}
+
+.appointment-date {
+  margin-top: 5px;
+}
+
+.patient-name {
+  margin-top: 5px;
+}
+
+.appointment-status {
+  margin-top: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.appointment-status.confirmed {
+  color: #0f0;
+  background-color: #dff0d8;
+}
+
+.appointment-status.not-confirmed {
+  color: #f00;
+  background-color: #f2dede;
+}

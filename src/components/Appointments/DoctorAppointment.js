@@ -1,18 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './DoctorAppointment.css';
 
-const DoctorAppointment = ({ patientName, doctorName, date, time }) => {
-  return (
-    <div className="appointment-container">
-      <h2>Doctor's Appointment</h2>
-      <div className="appointment-details">
-        <p>Patient: {patientName}</p>
-        <p>Doctor: {doctorName}</p>
-        <p>Date: {date}</p>
-        <p>Time: {time}</p>
-      </div>
+const DoctorAppointment = ({ doctorName, appointmentDate, patientName, isConfirmed }) => (
+  <div className="appointment-container">
+    <div className="doctor-name">{doctorName}</div>
+    <div className="appointment-date">{appointmentDate}</div>
+    <div className="patient-name">{patientName}</div>
+    <div className={`appointment-status ${isConfirmed ? 'confirmed' : 'not-confirmed'}`}>
+      {isConfirmed ? 'Confirmed' : 'Not Confirmed'}
     </div>
-  );
+  </div>
+);
+
+Appointment.propTypes = {
+  doctorName: PropTypes.string.isRequired,
+  appointmentDate: PropTypes.string.isRequired,
+  patientName: PropTypes.string.isRequired,
+  isConfirmed: PropTypes.bool.isRequired,
 };
 
 export default DoctorAppointment;
