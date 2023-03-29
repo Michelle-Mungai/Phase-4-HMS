@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './DoctorAppointment.css';
 
-function DoctorAppointment() {
+function DoctorAppointment(props) {
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -27,7 +27,7 @@ function DoctorAppointment() {
           <label htmlFor="time">Time:</label>
           <input type="time" id="time" value={time} onChange={(e) => setTime(e.target.value)} />
         </div>
-        <button type="submit">Book Appointment</button>
+        <button type="submit" onClick={() => props.onFormSwitch("appointment")}>Book Appointment</button>
       </form>
     </div>
   );
