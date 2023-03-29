@@ -1,0 +1,17 @@
+.appointment-container {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .appointment-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .appointment-details p {
+    margin: 5px 0;
+  }
