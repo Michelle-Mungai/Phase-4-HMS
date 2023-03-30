@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './DoctorAppointment.css';
 
+
 function DoctorAppointment(props) {
   const [name, setName] = useState('');
   const [date, setDate] = useState('');

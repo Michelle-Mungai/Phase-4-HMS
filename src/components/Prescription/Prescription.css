@@ -1,43 +1,37 @@
-.prescription {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
-    max-width: 500px;
-  }
-  
-  .prescription h2 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .prescription .details {
-    margin-top: 20px;
-  }
-  
-  .prescription .details p {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .prescription .medicines {
-    margin-top: 20px;
-  }
-  
-  .prescription .medicines h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .prescription .medicines ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .prescription .medicines li {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
+.prescription-page {
+  margin:0cap
+}
+
+.prescription-form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
