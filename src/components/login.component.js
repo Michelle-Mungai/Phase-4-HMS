@@ -34,6 +34,8 @@ export default class Login extends Component {
   render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
@@ -68,6 +70,8 @@ export default class Login extends Component {
         <p className="forgot-password text-right">
           Forgot <a href="/password"> password?</a>
         </p>
+        </div>
+        </div>
       </form>
     );
   }

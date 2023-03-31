@@ -60,6 +60,8 @@ export default class Password extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
         <h3>Reset Your Password</h3>
         <div className="mb-3">
           <label>Old Password</label>
@@ -101,6 +103,8 @@ export default class Password extends Component {
           <button type="submit" className="btn">
             Reset Password
           </button>
+        </div>
+        </div>
         </div>
       </form>
     );

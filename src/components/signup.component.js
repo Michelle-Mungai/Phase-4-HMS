@@ -21,6 +21,8 @@ export default function SignUp(props) {
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
+      <div className="auth-wrapper">
+          <div className="auth-inner">
       <h3>Sign Up</h3>
       <div className="mb-3">
         <label>Username</label>
@@ -74,6 +76,8 @@ export default function SignUp(props) {
       <p className="forgot-password text-right" onClick={() => props.onFormSwitch("login")}>
         Already registered <a href="/login">sign in?</a>
       </p>
+      </div>
+      </div>
     </form>
   );
 }
