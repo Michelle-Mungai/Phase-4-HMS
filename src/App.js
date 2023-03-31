@@ -35,21 +35,21 @@ function App() {
             </div> */}
           {/* </div> */}
         {/* </nav>  */}
-        <div className="auth-wrapper">
-          <div className="auth-inner">
+        {/* <div className="auth-wrapper">
+          <div className="auth-inner"> */}
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/password" element={<Password/>}/>
               <Route path="/navbar" element={<Navbar/>}/>
-              <Route path="/doctorAppointment" element={<DoctorAppointment/>}/>
-              <Route path="/patientAppointment" element={<PatientAppointment/>}/>
+              <Route path="/doctor" element={<DoctorAppointment/>}/>
+              <Route path="/patient" element={<PatientAppointment/>}/>
               <Route path="/prescription" element={<Prescription/>}/>
             </Routes>
           </div>
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
     </Router>
   );
 }

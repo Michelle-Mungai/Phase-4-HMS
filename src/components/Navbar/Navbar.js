@@ -15,7 +15,7 @@ function Navbar(props) {
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
-        <div className="navbar-wrapper">
+        <div className="navbar-wrapper navbar-container">
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className="navbar">
                     <Link to="#" className='menu-bars'>

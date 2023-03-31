@@ -1,24 +1,27 @@
 import React from 'react';
-import "./Prescription.css"
+import './Prescription.css';
 
-const Prescription = ({ patientName, doctorName, medicines }) => {
+function Prescription(props) {
   return (
-    <div className="prescription">
-      <h2>Prescription</h2>
-      <div className="details">
-        <p><strong>Patient Name:</strong> {patientName}</p>
-        <p><strong>Doctor Name:</strong> {doctorName}</p>
-      </div>
-      <div className="medicines">
-        <h3>Medicines:</h3>
-        <ul>
-          {medicines.map((medicine, index) => (
-            <li key={index}>{medicine}</li>
-          ))}
-        </ul>
+    <div className="prescription-page">
+      <h1>Prescription</h1>
+      <div className="prescription-form">
+        <label>Patient Name:</label>
+        <input type="text" name="patientName" />
+        <br />
+        <label>Doctor Name:</label>
+        <input type="text" name="doctorName" />
+        <br />
+        <label>Medications:</label>
+        <textarea name="medications" rows="10"></textarea>
+        <br />
+        <label>Notes:</label>
+        <textarea name="notes" rows="5"></textarea>
+        <br />
+        <button type="submit" onClick={() => props.onFormSwitch("appointment")}>Submit</button>
       </div>
     </div>
   );
-};
+}
 
 export default Prescription;
