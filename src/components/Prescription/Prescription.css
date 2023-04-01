@@ -1,0 +1,37 @@
+.prescription-page {
+  margin:0cap
+}
+
+.prescription-form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}

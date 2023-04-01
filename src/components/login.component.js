@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 import { Navigate } from 'react-router-dom';
 
 export default class Login extends Component {
@@ -21,26 +22,39 @@ export default class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // compare the entered password with the API password
-    if (this.state.password === this.state.apiPassword) {
-      // navigate to the home page
-      // replace the following line with your navigation code
-      return <Navigate to="/navbar" />;
-    } else {
-      alert("Incorrect password");
-    }
-  };
 
-  render() {
+    const data = {
+      email: this.email,
+      password: this.password
+    }
+    axios.post('https://fnf-s1ab.onrender.com/login', data)
+    .then (res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    })
+    // compare the entered password with the API password
+  //   if (this.state.password === this.state.apiPassword) {
+  //     // navigate to the home page
+  //     // replace the following line with your navigation code
+  //     return <Navigate to="/navbar" />;
+  //   } else {
+  //     alert("Incorrect password");
+  //   }
+  // };
+  }
+    render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
         <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Enter Email"
             required
             value={this.state.email}
             onChange={this.handleEmailChange}
@@ -68,6 +82,8 @@ export default class Login extends Component {
         <p className="forgot-password text-right">
           Forgot <a href="/password"> password?</a>
         </p>
+        </div>
+        </div>
       </form>
     );
   }
