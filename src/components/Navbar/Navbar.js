@@ -21,7 +21,7 @@ function Navbar(props) {
                     <Link to="#" className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar}/> 
                     </Link>
-                    <Link to="#" className='logout' title="Logout">
+                    <Link to="/login" className='logout' title="Logout">
                         <BiIcons.BiExit 
                             onClick={handleLogout}
                         /> 

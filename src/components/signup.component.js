@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 export default function SignUp(props) {
   const [username, setUsername] = useState("");
@@ -10,6 +11,29 @@ export default function SignUp(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = {
+      username: username,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword
+    }
+    // axios.post('https://fnf-s1ab.onrender.com/signup', data)
+    fetch('https://fnf-s1ab.onrender.com/signup', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+
     if (password !== confirmPassword) {
       alert("Passwords do not match");
     } else {
