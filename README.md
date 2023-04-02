@@ -30,8 +30,23 @@ To run this application on your local machine, you need to have Ruby on Rails an
 
 - Open your terminal.
 - Clone the repository `https://github.com/Michelle-Mungai/Phase-4-HMS`
+## Front-end setup
+- `npm install`
+- Then run `npm start` to view the site
+## Back-end setup
 - `Bundle install`
 - Run rails server using the command: `rails s`
 - Use Postman to access the endpoints.
 
+### Copyright and license information
 
+#### Authors
+
+ Michelle Mungai
+ Hilary Kariuki
+ Amina Hagi
+ Jacob Muchori
+
+#### License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
