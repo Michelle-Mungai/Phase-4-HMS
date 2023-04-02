@@ -24,7 +24,7 @@ export default function Login(props) {
         if (data.error === "Invalid username or password") {
         alert("Wrong password")
       } else {
-        navigate('/navbar');
+        navigate('/user');
       }
     })
       .catch((error) => {

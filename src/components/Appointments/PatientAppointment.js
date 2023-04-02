@@ -11,6 +11,29 @@ const PatientAppointment = (props) => {
     console.log("Patient Name: ", patientName);
     console.log("Doctor Name: ", doctorName);
     console.log("Appointment Date: ", appointmentDate);
+
+    // create an object to send as the body of the request
+    const appointmentDetails = {
+      patientName,
+      doctorName,
+      appointmentDate,
+    };
+
+    // send the appointment details to the server using fetch
+    fetch(`https://fnf-s1ab.onrender.com/patients/${props.patientId}/doctors/${props.doctorId}/appointments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(appointmentDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Appointment created successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error creating appointment:", error);
+      });
   };
 
   return (
@@ -38,7 +61,7 @@ const PatientAppointment = (props) => {
           onChange={(e) => setAppointmentDate(e.target.value)}
           required
         />
-        <button type="submit" onClick={() => props.onFormSwitch("appointment")}>Book Appointment</button>
+        <button type="submit">Book Appointment</button>
       </form>
     </div>
   );

@@ -6,7 +6,6 @@ export default class Password extends Component {
     super(props);
 
     this.state = {
-      oldPassword: "",
       newPassword: "",
       confirmPassword: "",
       passwordReset: false,
@@ -28,7 +27,7 @@ export default class Password extends Component {
     }
 
     // save new password to API endpoint
-     fetch("/api/change-password", {
+     fetch("https://fnf-s1ab.onrender.com/change-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,18 +62,6 @@ export default class Password extends Component {
         <div className="auth-wrapper">
           <div className="auth-inner">
         <h3>Reset Your Password</h3>
-        <div className="mb-3">
-          <label>Old Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Old Password"
-            name="oldPassword"
-            value={this.state.oldPassword}
-            onChange={this.handleChange}
-            required
-          />
-        </div>
         <div className="mb-3">
           <label>New Password</label>
           <input
