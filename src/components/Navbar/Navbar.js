@@ -6,13 +6,29 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData'
 import { IconContext } from 'react-icons';
 import './Navbar.css';
+import LandingPage from "../Landing/landing";
 
 function Navbar(props) {
     const { handleLogout } = props;
     const [sidebar, setSidebar] = useState(false)
-    // const [openPopup, setOpenPopup] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar)
+
+    const logout = () => {
+        fetch('https://fnf-s1ab.onrender.com/logout', {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                // Logout was successful, do something
+            } else {
+                // Logout failed, handle error
+            }
+        })
+        .catch(error => {
+            // Handle fetch error
+        });
+    }
 
     return (
         <div className="navbar-wrapper navbar-container">
@@ -22,9 +38,7 @@ function Navbar(props) {
                         <FaIcons.FaBars onClick={showSidebar}/> 
                     </Link>
                     <Link to="/login" className='logout' title="Logout">
-                        <BiIcons.BiExit 
-                            onClick={handleLogout}
-                        /> 
+                        <BiIcons.BiExit onClick={logout} /> 
                     </Link>
                 </div>
                 <nav className={sidebar ? 'nav-menu active ' : 'nav-menu' }>
@@ -51,9 +65,12 @@ function Navbar(props) {
                         })}                
                     </ul>
                 </nav>
-            </IconContext.Provider>  
+            </IconContext.Provider> 
+            <br/><br/><br/><br/><br/><br/> 
+           <LandingPage/>
         </div>
     )
 }
 
 export default Navbar;
+

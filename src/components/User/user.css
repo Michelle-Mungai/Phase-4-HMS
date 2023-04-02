@@ -1,0 +1,16 @@
+.useroption input{
+  margin-left: -13rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  align-items: center;
+  justify-content: center;
+}
+.useroption label{
+    margin-left: 18rem;
+}
+h2{
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-left: 2.5rem;
+}
