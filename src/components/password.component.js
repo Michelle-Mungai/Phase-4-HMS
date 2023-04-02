@@ -21,7 +21,7 @@ export default class Password extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const { newPassword, confirmPassword } = this.state;
+    const { newPassword, confirmPassword, email } = this.state;
     if (newPassword !== confirmPassword) {
       alert("New password and confirm password do not match!");
       return;
@@ -29,11 +29,11 @@ export default class Password extends Component {
 
     // save new password to API endpoint
      fetch("https://fnf-s1ab.onrender.com/change-password", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ newPassword }),
+      body: JSON.stringify({ newPassword, email }),
     })
       .then((response) => response.json())
       .then((data) => {

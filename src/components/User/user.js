@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import './user.css'
 
 function User() {
   const [userType, setUserType] = useState('');
 
   const handleUserTypeChange = (event) => {
-    setUserType(event.target.value);
-    fetch('https://fnf-s1ab.onrender.com/user-type', {
+    const selectedUserType = event.target.value;
+    setUserType(selectedUserType);
+    fetch('https://fnf-s1ab.onrender.com/signup', {
       method: 'POST',
-      body: JSON.stringify({ userType: event.target.value }),
+      body: JSON.stringify({ userType: selectedUserType }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -16,9 +18,9 @@ function User() {
       if (!response.ok) {
         throw new Error('Failed to update user type.');
       }
-      if (event.target.value === 'doctor') {
+      if (selectedUserType === 'doctor') {
         window.location.href = '/doctor';
-      } else if (event.target.value === 'patient') {
+      } else if (selectedUserType === 'patient') {
         window.location.href = '/patient';
       }
     })
@@ -28,29 +30,32 @@ function User() {
   };
 
   return (
-    <div className="auth-wrapper">
-          <div className="auth-inner">
-      <label>
-        <input
-          type="radio"
-          name="userType"
-          value="doctor"
-          checked={userType === 'doctor'}
-          onChange={handleUserTypeChange}
-        />
-        Doctor
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="userType"
-          value="patient"
-          checked={userType === 'patient'}
-          onChange={handleUserTypeChange}
-        />
-        Patient
-      </label>
-    </div>
+    <div className='useroption'>
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <h2> Access the site as? </h2>
+          <label>
+            <input
+              type="radio"
+              name="userType"
+              value="doctor"
+              checked={userType === 'doctor'}
+              onChange={handleUserTypeChange}
+            />
+            Doctor
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="userType"
+              value="patient"
+              checked={userType === 'patient'}
+              onChange={handleUserTypeChange}
+            />
+            Patient
+          </label>
+        </div>
+      </div>
     </div>
   );
 }

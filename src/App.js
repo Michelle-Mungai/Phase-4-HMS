@@ -6,9 +6,9 @@ import Login from './components/login.component';
 import SignUp from './components/signup.component';
 import Password from './components/password.component';
 import Navbar from './components/Navbar/Navbar';
-import DoctorAppointment from './components/Appointments/DoctorAppointment';
-import PatientAppointment from './components/Appointments/PatientAppointment';
+import DoctorDashboard from './components/Appointments/DoctorAppointment';
 import User from './components/User/user';
+import PatientDashboard from './components/Appointments/PatientAppointment';
 
 function App() {
   return (
@@ -44,8 +44,8 @@ function App() {
               <Route path="/password" element={<Password/>}/>
                <Route path="/user" element={<User/>} />
               <Route path="/navbar" element={<Navbar/>}/>
-              <Route path="/doctor" element={<DoctorAppointment/>}/>
-              <Route path="/patient" element={<PatientAppointment/>}/>
+              <Route path="/doctor" element={<DoctorDashboard/>}/>
+              <Route path="/patient" element={<PatientDashboard/>}/>
             </Routes>
           </div>
         {/* </div>
