@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function CurrentPatient() {
   const [patientData, setPatientData] = useState(null);
@@ -8,14 +9,12 @@ function CurrentPatient() {
     fetch('https://fnf-s1ab.onrender.com/pat')
     .then(response => response.json())
     .then(data => {
+      setLoading(false)
         setPatientData(data);
       })
     .catch((error) => {
         console.error('Error:', error);
       });
-    
-
-    fetchData();
   }, []);
 
   if (loading) {

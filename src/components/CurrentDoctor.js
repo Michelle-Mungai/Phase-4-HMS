@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function CurrentDoctor() {
   const [doctorData, setDoctorData] = useState(null);
@@ -8,14 +9,12 @@ function CurrentDoctor() {
     fetch('https://fnf-s1ab.onrender.com/doc')
     .then(response => response.json())
     .then(data => {
+      setLoading(false)
         setDoctorData(data);
       })
     .catch((error) => {
         console.error('Error:', error);
       });
-    
-
-    fetchData();
   }, []);
 
   if (loading) {
@@ -29,10 +28,10 @@ function CurrentDoctor() {
   return (
     <div>
       <h1>Your Profile</h1>
-      <p>Name: {doctor.name}</p>
-      <p>Age: {doctor.medical_license_number}</p>
-      <p>Gender: {doctor.medical_specialties}</p>
-      <p>Address: {patientData.address}</p>
+      <p>Name: {doctorData.name}</p>
+      <p>Age: {doctorData.medical_license_number}</p>
+      <p>Gender: {doctorData.medical_specialties}</p>
+      <p>Address: {doctorData.address}</p>
       <Link to="/Patients">View all Patients</Link>
     </div>
   );

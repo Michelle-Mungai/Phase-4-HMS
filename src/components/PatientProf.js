@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const PatientProf = () => {
+ function PatientProf() {
   const [name, setName] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [contactInfo, setContactInfo] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate()
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -41,7 +42,7 @@ const PatientProf = () => {
     }
 
   if (isSubmitted) {
-    return <Redirect to="../All/CurrentPatient" />;
+    navigate("../All/CurrentPatient");
   }
 
   return (

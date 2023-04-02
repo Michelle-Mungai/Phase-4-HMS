@@ -5,16 +5,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login.component';
 import SignUp from './components/signup.component';
 import Password from './components/password.component';
-import Navbar from './components/Navbar/Navbar';
-import DoctorAppointment from './components/Appointments/DoctorAppointment';
-import PatientAppointment from './components/Appointments/PatientAppointment';
-import Prescription from './components/Prescription/Prescription';
-import CurrentDoctor from './components/All/CurrentDoctor';
-import CurrentPatient from './components/All/CurrentPatient';
-import Doctors from './components/All/Doctors';
-import Patients from './components/All/Patients';
-import DoctorProf from './components/Profiles/DoctorsProf';
-import PatientProf from './components/Profiles/PatientProf';
+import Navbar from './components/Navbar';
+import DoctorAppointment from './components/DoctorAppointment';
+import PatientAppointment from './components/PatientAppointment';
+import Prescription from './components/Prescription';
+import CurrentDoctor from './components/CurrentDoctor';
+import CurrentPatient from './components/CurrentPatient';
+import Doctors from './components/Doctors';
+import Patients from './components/Patients';
+import DoctorProf from './components/DoctorsProf';
+import PatientProf from './components/PatientProf';
+import Landing from './components/Landing';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
           <div className="auth-inner"> */}
             <Routes>
               <Route exact path="/" element={<Login />} />
-              <Route path="/login" element={<Login />} />
+              <Route exact path="/Landing" element={<Landing />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/password" element={<Password/>}/>
               <Route path="/navbar" element={<Navbar/>}/>
@@ -57,7 +58,7 @@ function App() {
               <Route path="/CurrentDoctor" element={<CurrentDoctor/>}/>
               <Route path="/CurrentPatient" element={<CurrentPatient/>}/>
               <Route path="/DoctorsProf" element={<DoctorProf/>}/>
-              <Route path="/PatientProf'" element={<PatientProf/>}/>
+              <Route path="/PatientProf" element={<PatientProf/>}/>
 
             </Routes>
           </div>

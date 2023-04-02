@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 // import axios from 'axios'
-// import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
 
   function handleSubmit(e) {
@@ -35,7 +36,7 @@ export default function Login(props) {
         } else {
           // Perform sign up logic here, e.g. make API request to create user account
           // Once sign up is successful, navigate to the login page
-          navigate("/login");
+          navigate("/Landing");
         }
       };
 

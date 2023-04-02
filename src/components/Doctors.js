@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import DoctorCard from "./DoctorCard";
 
 function Doctors() {
     const [doctorsData, setDoctorsData] = useState([]);
@@ -21,6 +21,7 @@ const handleBooking = (id) => {
       {doctorsData.map((doctor) => (
         <DoctorCard
           key={doctor.id}
+          id={doctor.id}
           name={doctor.name}
           medicalNumber={doctor.medical_license_number}
           specialties={doctor.medical_specialties}
