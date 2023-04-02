@@ -25,3 +25,13 @@ The API provides several RESTful routes that allow users to view, create, update
 
 ### Features 
 
+### Setup Instructions
+To run this application on your local machine, you need to have Ruby on Rails and Postgesql installed. Follow these steps:
+
+- Open your terminal.
+- Clone the repository `https://github.com/Michelle-Mungai/Phase-4-HMS`
+- `Bundle install`
+- Run rails server using the command: `rails s`
+- Use Postman to access the endpoints.
+
+
