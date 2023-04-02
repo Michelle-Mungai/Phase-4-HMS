@@ -6,6 +6,7 @@ export default class Password extends Component {
     super(props);
 
     this.state = {
+      email: "",
       newPassword: "",
       confirmPassword: "",
       passwordReset: false,
@@ -62,6 +63,18 @@ export default class Password extends Component {
         <div className="auth-wrapper">
           <div className="auth-inner">
         <h3>Reset Your Password</h3>
+        <div className="mb-3">
+          <label> Email Address</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email Address"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required
+          />
+        </div>
         <div className="mb-3">
           <label>New Password</label>
           <input
