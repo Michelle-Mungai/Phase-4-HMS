@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
+// import axios from 'axios'
 
 export default function SignUp(props) {
   const [username, setUsername] = useState("");
@@ -62,7 +62,7 @@ export default function SignUp(props) {
       <div className="mb-3">
         <label>Email address</label>
         <input
-          type="email"
+          type="text"
           className="form-control"
           placeholder="Enter email"
           required
@@ -73,7 +73,7 @@ export default function SignUp(props) {
       <div className="mb-3">
         <label>Password</label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           placeholder="Enter password"
           required
@@ -84,7 +84,7 @@ export default function SignUp(props) {
       <div className="mb-3">
         <label>Confirm Password</label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           placeholder="Confirm password"
           required

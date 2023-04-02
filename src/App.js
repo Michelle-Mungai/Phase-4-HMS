@@ -9,6 +9,12 @@ import Navbar from './components/Navbar/Navbar';
 import DoctorAppointment from './components/Appointments/DoctorAppointment';
 import PatientAppointment from './components/Appointments/PatientAppointment';
 import Prescription from './components/Prescription/Prescription';
+import CurrentDoctor from './components/All/CurrentDoctor';
+import CurrentPatient from './components/All/CurrentPatient';
+import Doctors from './components/All/Doctors';
+import Patients from './components/All/Patients';
+import DoctorProf from './components/Profiles/DoctorsProf';
+import PatientProf from './components/Profiles/PatientProf';
 
 function App() {
   return (
@@ -43,9 +49,16 @@ function App() {
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/password" element={<Password/>}/>
               <Route path="/navbar" element={<Navbar/>}/>
-              <Route path="/doctor" element={<DoctorAppointment/>}/>
-              <Route path="/patient" element={<PatientAppointment/>}/>
+              <Route path="/DoctorAppointment/:id" element={<DoctorAppointment/>}/>
+              <Route path="/PatientAppointment" element={<PatientAppointment/>}/>
               <Route path="/prescription" element={<Prescription/>}/>
+              <Route path="/doctors" element={<Doctors/>}/>
+              <Route path="/patients" element={<Patients/>}/>
+              <Route path="/CurrentDoctor" element={<CurrentDoctor/>}/>
+              <Route path="/CurrentPatient" element={<CurrentPatient/>}/>
+              <Route path="/DoctorsProf" element={<DoctorProf/>}/>
+              <Route path="/PatientProf'" element={<PatientProf/>}/>
+
             </Routes>
           </div>
         {/* </div>

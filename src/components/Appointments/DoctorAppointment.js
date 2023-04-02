@@ -3,30 +3,41 @@ import './DoctorAppointment.css';
 
 
 function DoctorAppointment(props) {
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [appointment_date, setAppointmentDate] = useState('');
+  const [reason, setReason] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Code to submit the form data
-  }
+
+    const data = {
+      doctor_id: doctor.id,
+      appointment_date: appointment_date,
+      reason_for_visit: reason
+    }
+    fetch('https://fnf-s1ab.onrender.com/login', {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
 
   return (
     <div className="appointment">
       <h2>Book an Appointment</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Full Name:</label>
-          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
+      <form onSubmit={ e => handleSubmit(e)}>
         <div className="form-group">
           <label htmlFor="date">Date:</label>
-          <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+          <input type="date" id="date" value={appointment_date} onChange={(e) => setAppointmentDate(e.target.value)} />
         </div>
         <div className="form-group">
-          <label htmlFor="time">Time:</label>
-          <input type="time" id="time" value={time} onChange={(e) => setTime(e.target.value)} />
+          <label htmlFor="time">Reason:</label>
+          <input type="time" id="time" value={reason} onChange={(e) => setReason(e.target.value)} />
         </div>
         <button type="submit" onClick={() => props.onFormSwitch("appointment")}>Book Appointment</button>
       </form>
