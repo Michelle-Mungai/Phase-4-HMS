@@ -6,7 +6,7 @@ export default class Password extends Component {
     super(props);
 
     this.state = {
-      oldPassword: "",
+      email: "",
       newPassword: "",
       confirmPassword: "",
       passwordReset: false,
@@ -21,19 +21,19 @@ export default class Password extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const { newPassword, confirmPassword } = this.state;
+    const { newPassword, confirmPassword, email } = this.state;
     if (newPassword !== confirmPassword) {
       alert("New password and confirm password do not match!");
       return;
     }
 
     // save new password to API endpoint
-     fetch("/api/change-password", {
-      method: "POST",
+     fetch("https://fnf-s1ab.onrender.com/change-password", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ newPassword }),
+      body: JSON.stringify({ newPassword, email }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -60,15 +60,17 @@ export default class Password extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
         <h3>Reset Your Password</h3>
         <div className="mb-3">
-          <label>Old Password</label>
+          <label> Email Address</label>
           <input
-            type="password"
+            type="email"
             className="form-control"
-            placeholder="Old Password"
-            name="oldPassword"
-            value={this.state.oldPassword}
+            placeholder="Email Address"
+            name="email"
+            value={this.state.email}
             onChange={this.handleChange}
             required
           />
@@ -101,6 +103,8 @@ export default class Password extends Component {
           <button type="submit" className="btn">
             Reset Password
           </button>
+        </div>
+        </div>
         </div>
       </form>
     );

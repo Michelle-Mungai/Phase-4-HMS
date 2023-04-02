@@ -1,0 +1,75 @@
+/* Container */
+.patient-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select,
+input[type="date"],
+input[type="time"] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button[type="submit"],
+button[type="button"] {
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #0069d9;
+}
+
+/* Appointments Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+thead th,
+tbody td {
+  padding: 10px;
+  text-align: left;
+}
+
+thead th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Actions Buttons */
+.actions button {
+  margin-right: 10px;
+}

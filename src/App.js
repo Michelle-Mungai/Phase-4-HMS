@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login.component';
 import SignUp from './components/signup.component';
 import Password from './components/password.component';
-import Navbar from './components/navbar/navbar';
+import Navbar from './components/Navbar/Navbar';
+import DoctorDashboard from './components/Appointments/DoctorAppointment';
+import User from './components/User/user';
+import PatientDashboard from './components/Appointments/PatientAppointment';
 
 function App() {
   return (
@@ -32,18 +35,21 @@ function App() {
             </div> */}
           {/* </div> */}
         {/* </nav>  */}
-        <div className="auth-wrapper">
-          <div className="auth-inner">
+        {/* <div className="auth-wrapper">
+          <div className="auth-inner"> */}
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/password" element={<Password/>}/>
+               <Route path="/user" element={<User/>} />
               <Route path="/navbar" element={<Navbar/>}/>
+              <Route path="/doctor" element={<DoctorDashboard/>}/>
+              <Route path="/patient" element={<PatientDashboard/>}/>
             </Routes>
           </div>
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
     </Router>
   );
 }
