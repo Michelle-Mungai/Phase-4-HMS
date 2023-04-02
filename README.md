@@ -7,7 +7,6 @@
 - [Technology Used](#technology-used)
 - [Setup Instructions](#setup-instructions)
 - [Copyright and license information](#copyright-and-license-information)
-- [Resources](#resources) 
 
 ### Project Description
 This project is a simple react front-end project that uses a ruby on rails REST API to fecth doctors, patients and their appointments. 
