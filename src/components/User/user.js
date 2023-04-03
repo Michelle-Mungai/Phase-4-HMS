@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './user.css'
 
 function User() {
+  const UserType = {
+    DOCTOR: 0,
+    PATIENT: 1
+  };
+
   const [userType, setUserType] = useState('');
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
 
   const handleUserTypeChange = (event) => {
-    const selectedUserType = event.target.value;
-    setUserType(selectedUserType);
-    fetch('https://fnf-s1ab.onrender.com/signup', {
-      method: 'POST',
-      body: JSON.stringify({ userType: selectedUserType }),
+    const options = event.target.value;
+    setUserType(options);
+    const userTypeValue = options === 'doctor' ? UserType.DOCTOR : UserType.PATIENT;
+    fetch('https://fnf-s1ab.onrender.com/users', {
+      method: 'PUT',
+      body: JSON.stringify({ userId: userId, userType: userTypeValue }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -18,16 +27,33 @@ function User() {
       if (!response.ok) {
         throw new Error('Failed to update user type.');
       }
-      if (selectedUserType === 'doctor') {
-        window.location.href = '/doctor';
-      } else if (selectedUserType === 'patient') {
-        window.location.href = '/patient';
+      if (options === 'doctor') {
+        navigate('/doctor');
+      } else if (options === 'patient') {
+        navigate('/patient');
       }
     })
     .catch(error => {
       console.error(error);
     });
   };
+
+  useEffect(() => {
+    // Make a fetch request to get the user ID from the server.
+    fetch('https://fnf-s1ab.onrender.com/signup')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to get user ID.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setUserId(data.userId);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div className='useroption'>
@@ -60,4 +86,4 @@ function User() {
   );
 }
 
-export default User;
+export default User
