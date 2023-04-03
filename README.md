@@ -37,6 +37,7 @@ To run this application on your local machine, you need to have Ruby on Rails an
 - Run rails server using the command: `rails s`
 - Use Postman to access the endpoints.
 
+Our Backend API can be accessed using this link `https://fnf-s1ab.onrender.com`
 ### Copyright and license information
 
 #### Authors
