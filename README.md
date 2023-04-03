@@ -41,10 +41,10 @@ To run this application on your local machine, you need to have Ruby on Rails an
 
 #### Authors
 
- Michelle Mungai
- Hilary Kariuki
- Amina Hagi
- Jacob Muchori
+ - Michelle Mungai
+ - Hilary Kariuki
+ - Amina Hagi
+ - Jacob Muchori
 
 #### License
 

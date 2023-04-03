@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './patient.css'
+import Navbar from '../Navbar/Navbar';
 
 function PatientDashboard() {
   const [doctors, setDoctors] = useState([]);
   const [patient, setPatient] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
-  const [appointmentTime, setAppointmentTime] = useState('');
+  const [appointmentReason, setAppointmentReason] = useState('');
   const [appointments, setAppointments] = useState([]);
   const [appointmentToUpdate, setAppointmentToUpdate] = useState(null);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
@@ -19,7 +20,7 @@ function PatientDashboard() {
 
   const fetchDoctors = async () => {
     try {
-      const response = await axios.get('https://fnf-s1ab.onrender.com/doc');
+      const response = await axios.get('https://fnf-s1ab.onrender.com/doctors');
       setDoctors(response.data);
     } catch (error) {
       console.error(error);
@@ -43,23 +44,23 @@ function PatientDashboard() {
     setAppointmentDate(event.target.value);
   };
 
-  const handleAppointmentTimeChange = (event) => {
-    setAppointmentTime(event.target.value);
+  const handleAppointmentReasonChange = (event) => {
+    setAppointmentReason(event.target.value);
   };
 
   const handleAppointmentSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://fnf-s1ab.onrender.com/appointments', {
+      const response = await axios.post(`https://fnf-s1ab.onrender.com/patients/${patient.id}/appointments`, {
         doctorId: selectedDoctor,
         appointmentDate,
-        appointmentTime
+        appointmentReason
       });
       setAppointments([...appointments, response.data]);
       setSelectedDoctor('');
       setAppointmentDate('');
-      setAppointmentTime('');
+      setAppointmentReason('');
     } catch (error) {
       console.error(error);
     }
@@ -72,7 +73,7 @@ function PatientDashboard() {
       const response = await axios.put(`https://fnf-s1ab.onrender.com/appointments/${appointmentToUpdate.id}`, {
         doctorId: selectedDoctor,
         appointmentDate,
-        appointmentTime
+        appointmentReason
       });
       const updatedAppointments = appointments.map(appointment =>
         appointment.id === response.data.id ? response.data : appointment
@@ -81,7 +82,7 @@ function PatientDashboard() {
       setAppointmentToUpdate(null);
       setSelectedDoctor('');
       setAppointmentDate('');
-      setAppointmentTime('');
+      setAppointmentReason('');
       setShowUpdateForm(false);
     } catch (error) {
       console.error(error);
@@ -90,7 +91,7 @@ function PatientDashboard() {
 
   const handleAppointmentDelete = async (id) => {
     try {
-      await axios.delete(`https://fnf-s1ab.onrender.com/appointments/${id}`);
+      await axios.delete(`/appointments/${id}`);
       const updatedAppointments = appointments.filter(appointment => appointment.id !== id);
       setAppointments(updatedAppointments);
     } catch (error) {
@@ -100,13 +101,15 @@ function PatientDashboard() {
 
   const handleUpdateClick = (appointment) => {
     setSelectedDoctor(appointment.doctorId);
-    setAppointmentDate(appointment.appointmentDate);
-    setAppointmentTime(appointment.appointmentTime);
+    setAppointmentDate(appointment.appointment_date);
+    setAppointmentReason(appointment.reason_for_visit);
     setAppointmentToUpdate(appointment);
     setShowUpdateForm(true);
   };
 
   return (
+    <>
+    <Navbar/>
     <div>
       <h2>Book an Appointment</h2>
       <form onSubmit={showUpdateForm ? handleAppointmentUpdate : handleAppointmentSubmit}>
@@ -124,8 +127,8 @@ function PatientDashboard() {
       <input type="date" value={appointmentDate} onChange={handleAppointmentDateChange} />
     </label>
     <label>
-      Choose a Time:
-      <input type="time" value={appointmentTime} onChange={handleAppointmentTimeChange} />
+      Reason for Visit
+      <input type="text" value={appointmentReason} onChange={handleAppointmentReasonChange} />
     </label>
     <button type="submit">{showUpdateForm ? 'Update Appointment' : 'Book Appointment'}</button>
     {showUpdateForm && (
@@ -136,18 +139,16 @@ function PatientDashboard() {
   <table>
     <thead>
       <tr>
-        <th>Doctor</th>
+        <th>Reason for Visit</th>
         <th>Date</th>
-        <th>Time</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      {appointments.map(appointment => (
+      {Array.isArray(appointments) && appointments.map(appointment => (
         <tr key={appointment.id}>
-          <td>{appointment.doctorName}</td>
-          <td>{appointment.appointmentDate}</td>
-          <td>{appointment.appointmentTime}</td>
+          <td>{appointment.reason_for_visit}</td>
+          <td>{appointment.appointment_date}</td>
           <td>
             <button type="button" onClick={() => handleUpdateClick(appointment)}>Update</button>
             <button type="button" onClick={() => handleAppointmentDelete(appointment.id)}>Delete</button>
@@ -157,6 +158,7 @@ function PatientDashboard() {
     </tbody>
   </table>
 </div>
+</>
   )}
 
 export default PatientDashboard
